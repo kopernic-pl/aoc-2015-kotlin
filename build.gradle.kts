@@ -1,25 +1,20 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-	id("nebula.kotlin") version "1.3.11"
+    id("nebula.kotlin") version "1.3.11" apply false
 }
 
-group = "net.wrony.kopernic"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    jcenter()
+allprojects {
+    group = "net.wrony.kopernic"
+    version = "1.0-SNAPSHOT"
 }
 
-dependencies {
-    compile(kotlin("stdlib-jdk8"))
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+subprojects {
+    apply(plugin = "nebula.kotlin")
+    repositories {
+        jcenter()
+    }
 }
 
 tasks.withType<Wrapper> {
     gradleVersion = "5.0"
-	distributionType = Wrapper.DistributionType.ALL
+    distributionType = Wrapper.DistributionType.ALL
 }
