@@ -4,7 +4,7 @@ plugins {
 	id("nebula.kotlin") version "1.3.11"
 }
 
-group = "DFAsdf"
+group = "net.wrony.kopernic"
 version = "1.0-SNAPSHOT"
 
 repositories {
