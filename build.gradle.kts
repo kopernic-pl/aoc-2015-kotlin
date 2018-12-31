@@ -8,7 +8,7 @@ group = "net.wrony.kopernic"
 version = "1.0-SNAPSHOT"
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
