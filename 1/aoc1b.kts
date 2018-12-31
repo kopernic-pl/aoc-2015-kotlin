@@ -1,20 +1,20 @@
 import java.io.File
-import kotlin.system.exitProcess
+import java.io.InputStreamReader
 
+findBasementCommandIndex(File("input1").reader().readText())
 
-run loop@{
-    var floor = 0
-    File("input1")
-            .reader().readText()
-            .forEachIndexed { commandIdx, c ->
-                when {
-                    c.equals('(') -> floor++
-                    c.equals(')') -> floor--
-                    else -> throw RuntimeException("funny value in input")
-                }
-                if (floor < 0) {
-                    println("Command index for going to basement: ${commandIdx + 1}")
-                    return@loop //funny way to break in Kotlin, indeed
-                }
-            }
+fun findBasementCommandIndex(command: String): Int {
+    return command.foldIndexed(0, ::processCommand)
+}
+
+fun processCommand(commandIdx: Int, floor: Int, command: Char): Int {
+
+    val nextFloor= when {
+        command.equals('(') -> floor + 1
+        command.equals(')') -> floor - 1
+        else -> throw RuntimeException("funny value in input")
+    }
+    println("${commandIdx+1} : floor $floor, going to $nextFloor")
+    if (nextFloor<0) throw RuntimeException("Going to basement on idx ${commandIdx+1}")
+    return nextFloor;
 }
