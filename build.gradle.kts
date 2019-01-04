@@ -1,5 +1,6 @@
 plugins {
     id("nebula.kotlin") version "1.3.11" apply false
+    id("io.gitlab.arturbosch.detekt") version "1.0.0-RC12" apply false
 }
 
 allprojects {
@@ -9,6 +10,7 @@ allprojects {
 
 subprojects {
     apply(plugin = "nebula.kotlin")
+    apply(plugin = "io.gitlab.arturbosch.detekt")
     repositories {
         jcenter()
     }
