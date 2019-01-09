@@ -9,9 +9,15 @@ application {
 }
 
 dependencies {
-    compile("com.google.guava:guava:23.0")
+    compile("com.google.guava:guava:27.0.1-jre")
     compile(kotlin("reflect"))
     testCompile(kotlin("test"))
     testCompile(kotlin("test-junit"))
-    testCompile("junit:junit:4.12")
+
+    testCompileOnly("junit:junit:4.12")
+    testRuntime("org.junit.vintage:junit-vintage-engine:5.3.2")
+}
+
+tasks.test {
+    useJUnit()
 }

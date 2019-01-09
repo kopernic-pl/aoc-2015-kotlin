@@ -1,6 +1,5 @@
-import org.junit.Assert.assertEquals
-import java.lang.RuntimeException
-import kotlin.test.Test
+import org.junit.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertNotSame
 import HouseVisitsSantaTracker.zeroLoc as init
 
@@ -30,11 +29,10 @@ class HouseVisitsSantaTrackerKtTest {
         assertEquals(Location(-1, 0), HouseVisitsSantaTracker.move(init, c))
     }
 
-
     @Test(expected = RuntimeException::class)
     fun shouldThrow_whenMoveOperatorWrong() {
         val c = 'b'
-        HouseVisitsSantaTracker.move(Location(0,0), c)
+        HouseVisitsSantaTracker.move(Location(0, 0), c)
     }
 
     @Test
@@ -45,7 +43,6 @@ class HouseVisitsSantaTrackerKtTest {
         assertEquals(listOf(init, Location(-1, 0)), movePath)
         assertNotSame(initialLocationsList, movePath)
     }
-
 
     @Test
     fun shouldMoveSanta() {

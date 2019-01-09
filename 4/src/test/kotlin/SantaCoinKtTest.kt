@@ -1,8 +1,8 @@
 import SantaCoin.startsWithZeros
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
-import kotlin.test.assertFalse
 
 class SantaCoinKtTest {
     @Test
@@ -14,20 +14,26 @@ class SantaCoinKtTest {
         )
     }
 
-    @Test
-    fun `should check if hash hex representation starts with zeros`() {
+    @ParameterizedTest
+    @CsvSource(
+        "0, true",
+        "1, true",
+        "2, true",
+        "3, true",
+        "4, true",
+        "5, true",
+        "6, false"
+    )
+    fun `should check if hash hex representation starts with zeros`(input: Int, expected: Boolean) {
         val sampleHash = SantaCoin.hashString("abcdef609043")
-        assertTrue {sampleHash.startsWithZeros(0) }
-        assertTrue {sampleHash.startsWithZeros(1) }
-        assertTrue {sampleHash.startsWithZeros(2) }
-        assertTrue {sampleHash.startsWithZeros(3) }
-        assertTrue {sampleHash.startsWithZeros(4) }
-        assertTrue {sampleHash.startsWithZeros(5) }
-        assertFalse {sampleHash.startsWithZeros(6) }
+        assertEquals(
+            expected,
+            sampleHash.startsWithZeros(input)
+        )
     }
 
     @Test
-    fun `should find `() {
+    fun `should find`() {
         val sampleString = "abcdef"
         assertEquals(
             609043,

@@ -3,7 +3,9 @@ import com.google.common.hash.Hashing
 import java.nio.charset.Charset.defaultCharset
 import java.util.stream.IntStream
 
+@Suppress("UnstableApiUsage")
 object SantaCoin {
+    @Suppress("DEPRECATION")
     private val md5hash = Hashing.md5()
 
     internal fun hashString(s: String) = md5hash.hashString(s, defaultCharset())!!
