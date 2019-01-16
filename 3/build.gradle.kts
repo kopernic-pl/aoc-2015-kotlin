@@ -5,7 +5,7 @@ plugins {
 }
 
 application {
-    mainClassName = "PresentMap"
+    mainClassName = "HouseVisitsSantaTrackerKt"
 }
 
 dependencies {

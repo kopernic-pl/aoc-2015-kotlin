@@ -5,7 +5,7 @@ plugins {
 }
 
 application {
-    mainClassName = "SantaCoin"
+    mainClassName = "NaughtyNiceKt"
 }
 
 dependencies {
