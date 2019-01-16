@@ -10,10 +10,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-//import kotlin.test.assertEquals
-//import kotlin.test.assertTrue
-//import kotlin.test.assertFalse
-
 class NaughtyNiceKtTest {
 
     @Test
