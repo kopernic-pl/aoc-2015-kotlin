@@ -8,9 +8,7 @@ fun main() {
 fun fun8() {
     val lines = File(Resources.getResource("input.txt").toURI()).readLines()
     val codeSize = lines.map(String::length).sum()
-    lines.map(String::transformToMem).forEach(::println)
     val memSize = lines.map(String::transformToMem).map { it.length }.sum()
-
 
     println("Code size: $codeSize, mem size: $memSize diff: ${codeSize - memSize}")
 
