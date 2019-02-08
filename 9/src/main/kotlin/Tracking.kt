@@ -29,7 +29,7 @@ fun calcDistances() {
     println("Max: ${listOfAllDistances.max()}")
 }
 
-fun routeToLegs(route: List<Place>): List<Leg> = route.zip(route.drop(1))
+fun routeToLegs(route: List<Place>): List<Leg> = route.zipWithNext()
 fun distinctPlacesFromRoutes(routes: Set<Leg>) = routes.flatMap { it.toList() }.toSet()
 
 object InputReader {
