@@ -1,20 +1,20 @@
+import kotlin.system.measureTimeMillis
+
 fun main() {
-    var input = "1113222113"
-    for (i in 1..40) {
-        input = lookAndSay(input)
-        println("$i: ${input.length}")
-    }
-    println(input.length)
+    val input = "1113222113"
+    var localInput = input
 
     for (i in 1..50) {
-        input = lookAndSay(input)
-        println("$i: ${input.length}")
+        val elapsed =measureTimeMillis {
+            localInput = lookAndSay(localInput)
+        }
+        println("$i: ${localInput.length} , $elapsed")
     }
-    println(input.length)
+    println(localInput.length)
 }
 
 fun lookAndSay(s: String): String {
-    return s.splitOnChange0().flatMap { listOf(it.length.toString(), it.last().toString()) }.joinToString("")
+    return s.splitOnChange().flatMap { listOf(it.length.toString(), it.first().toString()) }.joinToString("")
 }
 
 //basing on rosettacode.org implementation of "Split on character change"
@@ -35,14 +35,14 @@ fun String.splitOnChange0(): List<String> {
     return out
 }
 
-//my own functional impl, but sadly underperforming
+//my own functional impl, but sadly underperforming as dropLast copies whole list one by one
 fun String.splitOnChange(): List<String> {
-    return this.fold(listOf<String>()) { acc, value ->
-        if (acc.isEmpty()) acc + listOf(value.toString())
+    return this.map(Char::toString).fold(listOf<String>()) { acc, value ->
+        if (acc.isEmpty()) acc + listOf(value)
         else {
             val lastGroup = acc.last()
-            val lastChar = lastGroup.last()
-            if (lastChar != value) acc + listOf(value.toString())
+            val lastChar = lastGroup.last().toString()
+            if (lastChar != value) acc + listOf(value)
             else acc.dropLast(1) + (lastGroup + value)
         }
     }
