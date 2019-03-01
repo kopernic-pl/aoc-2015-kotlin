@@ -15,7 +15,7 @@ dependencies {
     testCompile(kotlin("test-junit"))
 
     testCompileOnly("junit:junit:4.12")
-    testRuntime("org.junit.vintage:junit-vintage-engine:5.3.2")
+    testRuntime("org.junit.vintage:junit-vintage-engine:5.4.0")
 }
 
 tasks.test {
