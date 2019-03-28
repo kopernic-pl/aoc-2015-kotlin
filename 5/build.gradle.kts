@@ -9,7 +9,7 @@ application {
 }
 
 dependencies {
-    compile("com.google.guava:guava:27.0.1-jre")
+    compile("com.google.guava:guava:27.1-jre")
     compile(kotlin("reflect"))
     testCompile(kotlin("test"))
     testCompile(kotlin("test-junit5"))
