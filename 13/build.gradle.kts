@@ -3,7 +3,7 @@ plugins {
 }
 
 application {
-    mainClassName = "Accounting"
+    mainClassName = "TableSittingKt"
 }
 
 dependencies {
