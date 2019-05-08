@@ -1,5 +1,5 @@
 plugins {
-    id("nebula.kotlin") version "1.3.30" apply false
+    id("nebula.kotlin") version "1.3.31" apply false
     id("nebula.project") version "6.0.3" apply false
     id("io.gitlab.arturbosch.detekt") version "1.0.0-RC14" apply false
 
@@ -21,6 +21,6 @@ subprojects {
 }
 
 tasks.wrapper {
-    gradleVersion = "5.4"
+    gradleVersion = "5.4.1"
     distributionType = Wrapper.DistributionType.ALL
 }
