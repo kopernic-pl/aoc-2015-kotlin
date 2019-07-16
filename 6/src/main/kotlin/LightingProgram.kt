@@ -1,6 +1,6 @@
-import Lightning.Command
+import Lighting.Command
 
-class LightningProgram(commandsProvider: ()->List<String>) {
+class LightingProgram(commandsProvider: ()->List<String>) {
 
     val program: Sequence<Pair<Command, Coordinate>>
 

@@ -1,4 +1,4 @@
-interface Lightning {
+interface Lighting {
     val lightsSize: Int
 
     enum class Command {

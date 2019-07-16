@@ -1,5 +1,6 @@
 import com.google.common.io.Resources
 
+@Suppress("UnstableApiUsage")
 fun main() {
     val input = Resources.getResource("input.json").readText()
 
@@ -19,7 +20,7 @@ class Accounting(s: String) {
     }
 }
 
-class Reformatter() {
+class Reformatter {
     companion object {
         val red = """:"red"""".toRegex()
         val whitespace = "\\s".toRegex()
@@ -32,7 +33,7 @@ class Reformatter() {
     tailrec fun reformat(s: String): String {
         val doc = s.replace(whitespace, "")
         val allReds = findAllRed(doc)
-        if (allReds.isEmpty()) return doc;
+        if (allReds.isEmpty()) return doc
 
         val lastRed = allReds.last()
 

@@ -37,7 +37,7 @@ fun String.splitOnChange0(): List<String> {
 
 //my own functional impl, but sadly underperforming as dropLast copies whole list one by one
 fun String.splitOnChange(): List<String> {
-    return this.map(Char::toString).fold(listOf<String>()) { acc, value ->
+    return this.map(Char::toString).fold(listOf()) { acc, value ->
         if (acc.isEmpty()) acc + listOf(value)
         else {
             val lastGroup = acc.last()

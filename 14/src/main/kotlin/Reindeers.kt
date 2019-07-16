@@ -1,8 +1,8 @@
 import com.google.common.io.Resources
 import java.lang.IllegalArgumentException
 
+@Suppress("UnstableApiUsage")
 fun main() {
-
     val timerInput = 2503
 
     val reindeers = Resources.getResource("input.txt")

@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import com.google.common.io.Resources
 import java.io.File
 
@@ -63,7 +65,7 @@ fun aoc2b() {
     )
 }
 
-fun main(args: Array<String>) {
+fun main() {
     aoc2a()
     aoc2b()
 }

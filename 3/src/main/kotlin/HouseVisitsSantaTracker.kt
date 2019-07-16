@@ -3,6 +3,7 @@ import java.io.File
 
 typealias Location = Pair<Int, Int>
 
+@Suppress("UnstableApiUsage")
 object HouseVisitsSantaTracker {
 
     val zeroLoc = Location(0, 0)
@@ -59,7 +60,7 @@ object HouseVisitsSantaTracker {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     HouseVisitsSantaTracker.aoc3a()
     HouseVisitsSantaTracker.aoc3b()
 }

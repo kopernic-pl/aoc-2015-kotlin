@@ -10,6 +10,7 @@ fun main() {
     calcDistances()
 }
 
+@Suppress("UnstableApiUsage")
 fun calcDistances() {
     val input = File(Resources.getResource("input.txt").toURI()).readLines()
 

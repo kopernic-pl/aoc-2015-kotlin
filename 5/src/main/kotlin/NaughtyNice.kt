@@ -1,6 +1,7 @@
 import com.google.common.io.Resources
 import java.io.File
 
+@Suppress("UnstableApiUsage")
 object NaughtyNice {
 
     fun aoc5a() {

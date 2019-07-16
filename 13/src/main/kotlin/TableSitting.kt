@@ -1,6 +1,7 @@
 import com.google.common.collect.Collections2
 import com.google.common.io.Resources
 
+@Suppress("UnstableApiUsage")
 fun main() {
     val input = Resources.getResource("input.txt").readText()
 
@@ -53,7 +54,7 @@ class SittingPlan {
     fun findBestSitting(prefs: SittingPreferences): Pair<MutableList<String>, Int>? {
         val sittingPossibilities = Collections2.permutations(prefs.getAllNames())
         return sittingPossibilities.map { it to calculateHappiness(it, prefs) }
-            .maxBy { (list, happiness) -> happiness }
+            .maxBy { (_, happiness) -> happiness }
     }
 
     internal fun calculateHappiness(sittingLayout: List<String>, prefs: SittingPreferences): Int {

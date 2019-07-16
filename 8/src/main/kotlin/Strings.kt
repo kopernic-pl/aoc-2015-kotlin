@@ -1,11 +1,9 @@
 import com.google.common.io.Resources
 import java.io.File
 
-fun main() {
-    fun8()
-}
 
-fun fun8() {
+@Suppress("UnstableApiUsage")
+fun main() {
     val lines = File(Resources.getResource("input.txt").toURI()).readLines()
     val codeSize = lines.map(String::length).sum()
     val memSize = lines.map(String::transformToMem).map { it.length }.sum()

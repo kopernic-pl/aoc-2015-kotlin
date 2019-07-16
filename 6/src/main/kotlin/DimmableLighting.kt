@@ -1,4 +1,4 @@
-class DimmableLightning(override val lightsSize: Int) : Lightning {
+class DimmableLighting(override val lightsSize: Int) : Lighting {
 
     private val lights = Array(lightsSize) { IntArray(lightsSize) }
 
