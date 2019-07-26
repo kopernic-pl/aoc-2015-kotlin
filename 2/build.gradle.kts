@@ -9,13 +9,13 @@ application {
 }
 
 dependencies {
-    compile("com.google.guava:guava:27.1-jre")
+    compile("com.google.guava:guava:28.0-jre")
     compile(kotlin("reflect"))
     testCompile(kotlin("test"))
     testCompile(kotlin("test-junit"))
 
     testCompileOnly("junit:junit:4.12")
-    testRuntime("org.junit.vintage:junit-vintage-engine:5.5.0")
+    testRuntime("org.junit.vintage:junit-vintage-engine:5.5.1")
 }
 
 tasks.test {
