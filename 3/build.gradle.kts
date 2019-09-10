@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     application
 }
@@ -9,13 +7,14 @@ application {
 }
 
 dependencies {
-    compile("com.google.guava:guava:28.0-jre")
-    compile(kotlin("reflect"))
-    testCompile(kotlin("test"))
-    testCompile(kotlin("test-junit"))
+    implementation("com.google.guava:guava:28.1-jre")
+    implementation(kotlin("reflect"))
+    implementation(kotlin("stdlib-jdk8"))
 
+    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit"))
     testCompileOnly("junit:junit:4.12")
-    testRuntime("org.junit.vintage:junit-vintage-engine:5.5.1")
+    testRuntime("org.junit.vintage:junit-vintage-engine:5.5.2")
 }
 
 tasks.test {

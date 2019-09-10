@@ -4,7 +4,7 @@ import kotlin.test.Test
 
 internal class ReceiptGeneratorTest {
     @Test
-    internal fun `should generate all possible recipes`() {
+    fun `should generate all possible recipes`() {
         val result = ReceiptGenerator.generate(9, 4)
         result.size `should be equal to` 220
         result.forEach {

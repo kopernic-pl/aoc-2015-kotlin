@@ -44,11 +44,11 @@ object NaughtyNice {
         return this.matches(Regex(".*(\\w)\\1+.*"))
     }
 
-    fun String.containsLetterAnythingLetterPattern():Boolean {
+    fun String.containsLetterAnythingLetterPattern(): Boolean {
         return this.matches(Regex(".*(\\w).\\1.*"))
     }
 
-    fun String.hasTwoNonOverlappingTwin():Boolean {
+    fun String.hasTwoNonOverlappingTwin(): Boolean {
         return this.matches(Regex(".*(\\w\\w).*\\1.*"))
     }
 }
