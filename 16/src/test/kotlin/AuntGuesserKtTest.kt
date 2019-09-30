@@ -12,7 +12,7 @@ internal class AuntGuesserKtTest {
 
     @Test
     fun `should match all aunts if no checkers`() {
-        val checkers = mapOf<String, (Int) -> Boolean>()
+        val checkers: Map<String, (Int) -> Boolean> = mapOf()
         findAunt(testInput, checkers) { it shouldHaveSize testInput.size }
     }
 

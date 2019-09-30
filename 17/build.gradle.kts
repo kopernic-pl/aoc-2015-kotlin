@@ -3,7 +3,7 @@ plugins {
 }
 
 application {
-    mainClassName = "TableSittingKt"
+    mainClassName = "EggNogContainersKt"
 }
 
 dependencies {
