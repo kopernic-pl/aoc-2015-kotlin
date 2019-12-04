@@ -1,7 +1,6 @@
 import org.amshove.kluent.shouldHaveSize
 import kotlin.test.Test
 
-
 internal class AuntGuesserKtTest {
     private val testInput = listOf(
         "Sue 177: pomeranians: 4, vizslas: 7, trees: 3",
