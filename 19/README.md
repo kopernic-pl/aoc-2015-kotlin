@@ -1,3 +1,3 @@
 ###### Token replacements in string
 
-**Story:** Finding all weird molecules
+**Story:** Finding all weird molecules. 
