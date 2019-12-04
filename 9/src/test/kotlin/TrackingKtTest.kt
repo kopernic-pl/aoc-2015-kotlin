@@ -5,8 +5,7 @@ internal class TrackingKtTest {
 
     @Test
     fun `should expand list to list of pairs`(){
-        val listOfPairs = routeToLegs(listOf("a", "b", "c"))
+        val listOfPairs = DistanceCalculator().routeToLegs(listOf("a", "b", "c"))
         assertTrue{ listOfPairs == listOf("a" to "b", "b" to "c")}
     }
-
 }

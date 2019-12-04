@@ -1,6 +1,6 @@
 import com.google.common.collect.Sets.combinations
 
-internal val containers = """
+internal val CONTAINERS = """
     33
     14
     18
@@ -23,7 +23,7 @@ internal val containers = """
     42
 """.trimIndent().lines().map { it.toInt() }
 
-internal const val ExpectedVolume = 150
+internal const val EXPECTED_VOLUME = 150
 
 internal fun generateCombinationsOfIndices(numberOfElements: Int): List<Set<Int>> {
     val indices = (0 until numberOfElements).toSet()
@@ -31,18 +31,18 @@ internal fun generateCombinationsOfIndices(numberOfElements: Int): List<Set<Int>
 }
 
 internal fun indexesToSumOfContainerVolumes(indices: Set<Int>): Int {
-    return indices.fold(0) { acc, idx -> acc + containers[idx] }
+    return indices.fold(0) { acc, idx -> acc + CONTAINERS[idx] }
 }
 
 fun main() {
-    generateCombinationsOfIndices(containers.size)
+    generateCombinationsOfIndices(CONTAINERS.size)
         .map(::indexesToSumOfContainerVolumes)
-        .filter { it == ExpectedVolume }
-        .also { println("Number of combinations that holds $ExpectedVolume liters: ${it.size}") }
+        .filter { it == EXPECTED_VOLUME }
+        .also { println("Number of combinations that holds $EXPECTED_VOLUME liters: ${it.size}") }
 
-    val m = generateCombinationsOfIndices(containers.size)
+    val m = generateCombinationsOfIndices(CONTAINERS.size)
         .map { c -> c to indexesToSumOfContainerVolumes(c) }
-        .filter { (_, size) -> size == ExpectedVolume }
+        .filter { (_, size) -> size == EXPECTED_VOLUME }
         .map { (set, _) -> set to set.size }
         .toMap()
 

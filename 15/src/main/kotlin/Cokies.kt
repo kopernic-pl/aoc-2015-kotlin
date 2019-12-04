@@ -9,7 +9,6 @@ fun main() {
         .readText().lines()
         .map(Ingredient.Companion::fromString)
 
-
     val allSolutions = ReceiptGenerator.generate(TEASPOONS_CAPACITY, allIngredients.size)
 
     val cookieScoringFunction = { receipt: List<Int> -> calcSingleReceiptScore(receipt, allIngredients) }
@@ -35,8 +34,10 @@ fun main() {
 
 private fun maxScore(): (List<Int>) -> Int = { it.max()!! }
 
-private fun only500calories(allIngredients: List<Ingredient>): (List<Int>) -> Boolean =
-    { val caloriesTarget = 500; calcSingleReceiptCaloriesValue(it, allIngredients) == caloriesTarget }
+const val CALORIES_TARGET_500 = 500
+private fun only500calories(allIngredients: List<Ingredient>): (List<Int>) -> Boolean = {
+    calcSingleReceiptCaloriesValue(it, allIngredients) == CALORIES_TARGET_500
+}
 
 private fun calcSingleReceiptScore(receipt: List<Int>, ingredients: List<Ingredient>): Int {
     return getPropertyForIngredient(receipt, ingredients, IngredientProperty.CAPACITY) *

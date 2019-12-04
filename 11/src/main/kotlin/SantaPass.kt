@@ -1,10 +1,10 @@
-const val input = "hepxcrrq"
+const val INPUT = "hepxcrrq"
 
 typealias IncrementResult = Pair<Boolean, Char>
 
 fun main() {
     val generator = SantaPass()
-    val passwords = generator.generateNextPasswords(input, 2)
+    val passwords = generator.generateNextPasswords(INPUT, 2)
 
     println(passwords)
 }
@@ -33,13 +33,14 @@ internal operator fun String.inc(): String {
     if (this.isEmpty()) throw IllegalStateException()
 
     return this.foldRight(listOf(),
-        fun(char: Char, acc: List<IncrementResult>): List<IncrementResult> {
-            return when {
+        { char, acc: List<IncrementResult> ->
+            when {
                 acc.isEmpty() -> acc + char.incrementWithCarry()
                 lastHasCarry(acc) -> acc + char.incrementWithCarry()
                 else -> acc + (false to char)
             }
-        }).reversed()
+        })
+        .reversed()
         .let {
             if (firstHasCarry(it)) listOf(false to 'a') + it
             else it

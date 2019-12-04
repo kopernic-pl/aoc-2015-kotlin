@@ -57,13 +57,13 @@ private fun Map<String, Int>.matches(factCheckers: Map<String, (Int) -> Boolean>
 data class AuntMemory(val name: String, val memory: Map<String, Int>)
 
 object AuntMemoriesReader {
-    const val sueKey = "sue"
-    const val mem1Key = "mem1Key"
-    const val mem1cntKey = "mem1cntKey"
-    const val mem2Key = "mem2Key"
-    const val mem2cntKey = "mem2cntKey"
-    const val mem3Key = "mem3Key"
-    const val mem3cntKey = "mem3cntKey"
+    private const val sueKey = "sue"
+    private const val mem1Key = "mem1Key"
+    private const val mem1cntKey = "mem1cntKey"
+    private const val mem2Key = "mem2Key"
+    private const val mem2cntKey = "mem2cntKey"
+    private const val mem3Key = "mem3Key"
+    private const val mem3cntKey = "mem3cntKey"
 
     private val regex =
         ("(?<$sueKey>Sue \\d+):" +

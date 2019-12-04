@@ -16,7 +16,7 @@ object HouseVisitsSantaTracker {
         '<' -> Location(loc.first - 1, loc.second)
         '^' -> Location(loc.first, loc.second + 1)
         'v' -> Location(loc.first, loc.second - 1)
-        else -> throw RuntimeException()
+        else -> throw UnexpectedInputException()
     }
 
     internal fun aoc3a(commands: String): Int =
@@ -30,10 +30,9 @@ object HouseVisitsSantaTracker {
                     0 -> {
                         Pair(moveWithPath(santaPath, c), roboSantaPath)
                     }
-                    1 -> {
+                    else -> {
                         Pair(santaPath, moveWithPath(roboSantaPath, c))
                     }
-                    else -> throw RuntimeException()
                 }
             }.toList()
             .flatten()
@@ -59,6 +58,8 @@ object HouseVisitsSantaTracker {
         )
     }
 }
+
+class UnexpectedInputException : RuntimeException()
 
 fun main() {
     HouseVisitsSantaTracker.aoc3a()

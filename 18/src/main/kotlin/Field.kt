@@ -5,24 +5,24 @@ class Field(
     lightsStuckOn: List<Pair<Int, Int>> = listOf(),
     init: (Int, Int) -> Boolean = { _, _ -> false }
 ) {
-    private val field: Array<Array<Light>>
+    private val fieldLights: Array<Array<Light>>
     private val allLights: List<Light>
     private val lightsStuckOn: List<Light>
 
     init {
-        this.field = Array(size) { p -> Array(size) { q -> byBoolean(init(p, q)) } }
-        this.allLights = field.flatten()
+        this.fieldLights = Array(size) { p -> Array(size) { q -> byBoolean(init(p, q)) } }
+        this.allLights = fieldLights.flatten()
         this.lightsStuckOn = initStuckOn(lightsStuckOn)
         initFieldNeighbours()
     }
 
     private fun initStuckOn(lightsStuckOn: List<Pair<Int, Int>>): List<Light> {
-        lightsStuckOn.forEach { (p, q) -> field[p][q].state = true }
+        lightsStuckOn.forEach { (p, q) -> fieldLights[p][q].state = true }
         return lightsStuckOn.map(::fieldByLocation)
     }
 
     private fun initFieldNeighbours() {
-        field.indices.flatMap { x -> field.indices.map { y -> x to y } }
+        fieldLights.indices.flatMap { x -> fieldLights.indices.map { y -> x to y } }
             .map { lightLoc -> fieldByLocation(lightLoc) to getNeighbours(lightLoc) }
             .forEach { (light, neighbours) -> light.neighbours = neighbours }
     }
@@ -35,23 +35,23 @@ class Field(
     }
 
     internal fun numberOfLights(): Int {
-        return field.map { row -> row.size }.sum()
+        return fieldLights.map { row -> row.size }.sum()
     }
 
     internal fun numberOfOnLights(): Int {
-        return field.map { row -> row.filter { l -> l.state }.size }.sum()
+        return fieldLights.map { row -> row.filter { l -> l.state }.size }.sum()
     }
 
     internal fun fieldByLocation(loc: Pair<Int, Int>): Light {
         val (x, y) = loc
-        return field[x][y]
+        return fieldLights[x][y]
     }
 
     internal fun fieldByLocation(x: Int, y: Int): Light {
-        return field[x][y]
+        return fieldLights[x][y]
     }
 
-    private fun isInField(it: Int) = it >= 0 && it < field.size
+    private fun isInField(it: Int) = it >= 0 && it < fieldLights.size
 
     fun calcNextState() {
         (allLights - lightsStuckOn).forEach(Light::calculateNextState)

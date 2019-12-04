@@ -30,15 +30,14 @@ class GiftBox private constructor(
         val a1 = x * y
         val a2 = y * z
         val a3 = x * z
-        val slack = (intArrayOf(a1, a2, a3).min()
-            ?: throw RuntimeException("Class not properly initialized"))
+        val slack = intArrayOf(a1, a2, a3).min()!!
         return 2 * a1 + 2 * a2 + 2 * a3 + slack
     }
 
     private fun getVolume() = x * y * z
 
     private fun getShortestPerimeter() =
-        intArrayOf(2 * x + 2 * y, 2 * x + 2 * z, 2 * y + 2 * z).min() ?: throw RuntimeException()
+        intArrayOf(2 * x + 2 * y, 2 * x + 2 * z, 2 * y + 2 * z).min()!!
 }
 
 fun aoc2a() {

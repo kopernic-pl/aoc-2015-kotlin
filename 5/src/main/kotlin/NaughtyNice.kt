@@ -3,14 +3,15 @@ import java.io.File
 
 @Suppress("UnstableApiUsage")
 object NaughtyNice {
-
+    private const val minimumVowels = 3
     fun aoc5a() {
+
         val x = File(Resources.getResource("input.txt").toURI()).readLines().map {
             when {
-                it.containsAnyLetterTwiceInRow() && !it.containsForbidden() && it.countVovels() >= 3 -> true
+                it.containsAnyLetterTwiceInRow() && !it.containsForbidden() && it.countVovels() >= minimumVowels -> true
                 else -> false
             }
-        }.count { it == true }
+        }.count { it }
 
         println(x)
     }
@@ -21,7 +22,7 @@ object NaughtyNice {
                 it.containsLetterAnythingLetterPattern() && it.hasTwoNonOverlappingTwin() -> true
                 else -> false
             }
-        }.count { it == true }
+        }.count { it }
 
         println(x)
     }
@@ -53,7 +54,7 @@ object NaughtyNice {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     NaughtyNice.aoc5a()
     NaughtyNice.aoc5b()
 }

@@ -7,33 +7,35 @@ typealias Leg = Pair<Place, Place>
 typealias LegWithDistance = Pair<Leg, Int>
 
 fun main() {
-    calcDistances()
+    DistanceCalculator().calcDistances()
 }
 
-@Suppress("UnstableApiUsage")
-fun calcDistances() {
-    val input = File(Resources.getResource("input.txt").toURI()).readLines()
+class DistanceCalculator {
+    @Suppress("UnstableApiUsage")
+    fun calcDistances() {
+        val input = File(Resources.getResource("input.txt").toURI()).readLines()
 
-    val distances = input.flatMap(InputReader::parse).toMap()
+        val distances = input.flatMap(InputReader::parse).toMap()
 
-    val allPlaces = distinctPlacesFromRoutes(distances.keys)
-    val allRoutes = Collections2.permutations(allPlaces)
+        val allPlaces = distinctPlacesFromRoutes(distances.keys)
+        val allRoutes = Collections2.permutations(allPlaces)
 
-    val listOfAllRoutesByLegs = allRoutes.map(::routeToLegs)
-    val listOfAllDistances = listOfAllRoutesByLegs.map { legs ->
-        legs
-            .mapNotNull { distances[it] }
-            .sum()
+        val listOfAllRoutesByLegs = allRoutes.map(::routeToLegs)
+        val listOfAllDistances = listOfAllRoutesByLegs.map { legs ->
+            legs
+                .mapNotNull { distances[it] }
+                .sum()
+        }
+
+        println("Min: ${listOfAllDistances.min()}")
+        println("Max: ${listOfAllDistances.max()}")
     }
 
-    println("Min: ${listOfAllDistances.min()}")
-    println("Max: ${listOfAllDistances.max()}")
+    internal fun routeToLegs(route: List<Place>): List<Leg> = route.zipWithNext()
+    private fun distinctPlacesFromRoutes(routes: Set<Leg>) = routes.flatMap { it.toList() }.toSet()
 }
 
-fun routeToLegs(route: List<Place>): List<Leg> = route.zipWithNext()
-fun distinctPlacesFromRoutes(routes: Set<Leg>) = routes.flatMap { it.toList() }.toSet()
-
-object InputReader {
+internal object InputReader {
     fun parse(s: String): List<LegWithDistance> {
         val splits = s.split(' ')
         return listOf((splits[0] to splits[2]) to splits[4].toInt(), (splits[2] to splits[0]) to splits[4].toInt())

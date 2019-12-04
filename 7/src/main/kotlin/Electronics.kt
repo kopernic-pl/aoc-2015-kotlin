@@ -33,14 +33,14 @@ internal val templates: Set<TemplateProvider> = setOf(
     InputElement.InputDef
 )
 
-const val interestingSignal = "a"
+const val SIGNAL_LOOKED_FOR = "a"
 
 private fun calculateNetwork(elements: Map<String, Element>): Int {
     val inputElements = findInputElements(elements)
 
     var busValues = inputElements.map { (bus, element) -> bus to (element as InputElement).apply() }.toMap()
 
-    while (hasNoValueForSignal(busValues, interestingSignal)) {
+    while (hasNoValueForSignal(busValues, SIGNAL_LOOKED_FOR)) {
         val unknownElements = elements - busValues.keys
         val elementsWithKnownInputs =
             unknownElements.filter { (_, element) -> busValues.keys.containsAll(element.inputs) }
@@ -48,8 +48,8 @@ private fun calculateNetwork(elements: Map<String, Element>): Int {
             .map { (bus, element) -> bus to calcElementOutput(element, busValues) }
     }
 
-    println("Signal on a is ${busValues[interestingSignal]}")
-    return busValues.getValue(interestingSignal)
+    println("Signal on a is ${busValues[SIGNAL_LOOKED_FOR]}")
+    return busValues.getValue(SIGNAL_LOOKED_FOR)
 }
 
 private fun hasNoValueForSignal(busValues: Map<String, Int>, signalName: String) =
@@ -181,7 +181,6 @@ class Identity(override val inputs: List<String>, override val output: String) :
 
     override fun apply(input: Int): Int = input
 }
-
 
 class InputElement(private val inputValue: Int, override val output: String, override val inputs: List<String>) :
     Element {

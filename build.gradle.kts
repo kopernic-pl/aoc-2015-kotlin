@@ -1,9 +1,9 @@
 plugins {
-    id("nebula.kotlin") version "1.3.50" apply false
-    id("nebula.project") version "6.2.0" apply false
-    id("io.gitlab.arturbosch.detekt") version "1.0.1" apply false
+    id("nebula.kotlin") version "1.3.61" apply false
+    id("nebula.project") version "7.0.4" apply false
+    id("io.gitlab.arturbosch.detekt") version "1.2.1" apply false
 
-    id("com.github.ben-manes.versions") version "0.25.0"
+    id("com.github.ben-manes.versions") version "0.27.0"
 }
 
 allprojects {
@@ -21,6 +21,6 @@ subprojects {
 }
 
 tasks.wrapper {
-    gradleVersion = "5.6.2"
+    gradleVersion = "6.0.1"
     distributionType = Wrapper.DistributionType.ALL
 }

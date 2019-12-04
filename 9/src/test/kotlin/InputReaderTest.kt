@@ -15,4 +15,3 @@ internal class InputReaderTest {
         assertEquals(out, listOf((from to to) to distance, (to to from) to distance))
     }
 }
-

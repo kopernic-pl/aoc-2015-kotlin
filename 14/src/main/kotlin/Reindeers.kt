@@ -1,30 +1,28 @@
 import com.google.common.io.Resources
-import java.lang.IllegalArgumentException
+
+const val TIMER_INPUT = 2503
 
 @Suppress("UnstableApiUsage")
 fun main() {
-    val timerInput = 2503
-
     val reindeers = Resources.getResource("input.txt")
         .readText().lineSequence()
         .map { ReindeerReader.read(it) }
 
     val winningReindeerBySpeed = reindeers
-        .map { (name, r) -> name to r.getPosition(timerInput) }
+        .map { (name, r) -> name to r.getPosition(TIMER_INPUT) }
         .sortedByDescending { (_, distance) -> distance }
         .first()
 
     println("Winner by speed: $winningReindeerBySpeed")
 
-    val leadershipResult = ReindeerLeadershipRaceSimulator(timerInput).calculateLeadershipRace(reindeers)
+    val leadershipResult = ReindeerLeadershipRaceSimulator(TIMER_INPUT).calculateLeadershipRace(reindeers)
 
-    val winnerByLeadership = leadershipResult.toList()
-        .sortedByDescending { (_, result) -> result }.first()
+    val winnerByLeadership = leadershipResult.toList().maxBy { (_, result) -> result }
 
     println("Winner by leadership: $winnerByLeadership")
 }
 
-class ReindeerLeadershipRaceSimulator(val raceTime: Int) {
+class ReindeerLeadershipRaceSimulator(private val raceTime: Int) {
     fun calculateLeadershipRace(reindeers: Sequence<Pair<String, Reindeer>>): Map<String, Int> {
         return (1..raceTime).asSequence()
             .fold(reindeers.toMap().keys.map { name -> name to 0 }.toMap()) { result, second ->
@@ -49,9 +47,14 @@ class ReindeerLeadershipRaceSimulator(val raceTime: Int) {
 object ReindeerReader {
     fun read(description: String): Pair<String, Reindeer> {
         description.split(" ").let {
-            return it[0] to Reindeer(it[3].toInt(), it[6].toInt(), it[13].toInt())
+            return it[nameIdx] to Reindeer(it[speedIdx].toInt(), it[flyTime].toInt(), it[restTime].toInt())
         }
     }
+
+    private const val nameIdx = 0
+    private const val speedIdx = 3
+    private const val flyTime = 6
+    private const val restTime = 13
 }
 
 class Reindeer(private val speed: Int, private val speedTime: Int, private val sleep: Int) {
@@ -70,7 +73,6 @@ class Reindeer(private val speed: Int, private val speedTime: Int, private val s
     internal fun fullCycles(time: Int): Int = time / cycleTime
 
     internal fun reminderTime(time: Int): Int = time % cycleTime
-
 
     fun getPosition(time: Int): Int {
         return fullCycles(time) * speed * speedTime + getPositionInLastCycle(reminderTime(time))
