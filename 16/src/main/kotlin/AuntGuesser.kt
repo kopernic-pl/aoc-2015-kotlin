@@ -1,5 +1,6 @@
 import com.google.common.io.Resources
 
+@Suppress("MagicNumber")
 val facts = mapOf(
     "children" to 3,
     "cats" to 7,

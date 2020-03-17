@@ -1,5 +1,4 @@
-import org.amshove.kluent.`should equal`
-import org.junit.jupiter.api.Assertions.*
+import org.amshove.kluent.`should be equal to`
 import kotlin.test.Test
 
 internal class ReformatterTest {
@@ -15,7 +14,7 @@ internal class ReformatterTest {
             [1,2,3]]
         """
 
-        Reformatter().reformat(testString) `should equal` "[{},[1,2,3]]"
+        Reformatter().reformat(testString) `should be equal to` "[{},[1,2,3]]"
     }
 
     @Test
@@ -29,6 +28,6 @@ internal class ReformatterTest {
             [1,"red",3]]
         """
 
-        Reformatter().reformat(testString) `should equal` """[{},[1,"red",3]]"""
+        Reformatter().reformat(testString) `should be equal to` """[{},[1,"red",3]]"""
     }
 }

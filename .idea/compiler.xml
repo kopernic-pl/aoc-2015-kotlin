@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="aoc-2015-kotlin.net.wrony.kopernic.aoc2015.main" target="1.8" />
       <module name="aoc-2015-kotlin.net.wrony.kopernic.aoc2015.test" target="1.8" />
+      <module name="aoc2015.19.main" target="11" />
+      <module name="aoc2015.19.test" target="11" />
       <module name="net.wrony.kopernic.aoc-2015-kotlin.main" target="1.8" />
       <module name="net.wrony.kopernic.aoc-2015-kotlin.test" target="1.8" />
       <module name="net.wrony.kopernic.aoc2015.main" target="1.8" />

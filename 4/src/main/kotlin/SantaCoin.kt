@@ -27,7 +27,7 @@ object SantaCoin {
 
         println(
             "Number that hashes with five trailing zeros: " +
-                findNumberHashWithTrailingZeros(input, 5)
+                findNumberHashWithTrailingZeros(input, trailingZeros = 5)
         )
     }
 
@@ -36,7 +36,7 @@ object SantaCoin {
 
         println(
             "Number that hashes with six trailing zeros: " +
-                findNumberHashWithTrailingZeros(input, 6)
+                    findNumberHashWithTrailingZeros(input, trailingZeros = 6)
         )
     }
 }

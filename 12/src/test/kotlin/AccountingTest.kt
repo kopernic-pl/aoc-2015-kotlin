@@ -1,4 +1,4 @@
-import org.amshove.kluent.*
+import org.amshove.kluent.`should be equal to`
 import kotlin.test.Test
 
 internal class AccountingTest {
@@ -14,6 +14,6 @@ internal class AccountingTest {
             [1,2,3]]
         """
 
-        Accounting(testString).addAllNumbers() `should equal` 12
+        Accounting(testString).addAllNumbers() `should be equal to` 12
     }
 }

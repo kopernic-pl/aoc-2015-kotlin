@@ -36,8 +36,14 @@ class DistanceCalculator {
 }
 
 internal object InputReader {
+    private const val firstPlaceIdx = 0
+    private const val secondPlaceIdx = 2
+    private const val distanceIdx = 4
     fun parse(s: String): List<LegWithDistance> {
         val splits = s.split(' ')
-        return listOf((splits[0] to splits[2]) to splits[4].toInt(), (splits[2] to splits[0]) to splits[4].toInt())
+        return listOf(
+            (splits[firstPlaceIdx] to splits[secondPlaceIdx]) to splits[distanceIdx].toInt(),
+            (splits[secondPlaceIdx] to splits[firstPlaceIdx]) to splits[distanceIdx].toInt()
+        )
     }
 }

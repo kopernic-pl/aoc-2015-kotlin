@@ -12,6 +12,7 @@ fun main() {
     println(bestSittingWithMe)
 }
 
+@Suppress("MagicNumber")
 class SittingPreferences {
     constructor(preferences: String) {
         preferencesMap = preferences.lineSequence().map(::parsePreferenceLine).toMap()
@@ -49,6 +50,7 @@ class SittingPreferences {
     }
 }
 
+@Suppress("UnstableApiUsage")
 class SittingPlan {
     //that gets factorial and will be very slow with higher diners number
     fun findBestSitting(prefs: SittingPreferences): Pair<MutableList<String>, Int>? {
