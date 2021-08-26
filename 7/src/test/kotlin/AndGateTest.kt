@@ -34,8 +34,8 @@ internal class AndGateTest {
         assertTrue { element != null }
         assertTrue { element is AndGate }
         val gate = element as AndGate
-        assertTrue {gate.inputs == listOf("ab", "ad")}
-        assertTrue {gate.output == "ae"}
+        assertTrue { gate.inputs == listOf("ab", "ad") }
+        assertTrue { gate.output == "ae" }
     }
 
     @Test

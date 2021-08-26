@@ -32,7 +32,7 @@ fun main() {
     println("Best 500 calories cookie is scored at $max500CaloriesCookieByNonCalories")
 }
 
-private fun maxScore(): (List<Int>) -> Int = { it.max()!! }
+private fun maxScore(): (List<Int>) -> Int = { it.maxOrNull()!! }
 
 const val CALORIES_TARGET_500 = 500
 private fun only500calories(allIngredients: List<Ingredient>): (List<Int>) -> Boolean = {
@@ -41,9 +41,9 @@ private fun only500calories(allIngredients: List<Ingredient>): (List<Int>) -> Bo
 
 private fun calcSingleReceiptScore(receipt: List<Int>, ingredients: List<Ingredient>): Int {
     return getPropertyForIngredient(receipt, ingredients, IngredientProperty.CAPACITY) *
-            getPropertyForIngredient(receipt, ingredients, IngredientProperty.DURABILITY) *
-            getPropertyForIngredient(receipt, ingredients, IngredientProperty.FLAVOR) *
-            getPropertyForIngredient(receipt, ingredients, IngredientProperty.TEXTURE)
+        getPropertyForIngredient(receipt, ingredients, IngredientProperty.DURABILITY) *
+        getPropertyForIngredient(receipt, ingredients, IngredientProperty.FLAVOR) *
+        getPropertyForIngredient(receipt, ingredients, IngredientProperty.TEXTURE)
 }
 
 private fun calcSingleReceiptCaloriesValue(receipt: List<Int>, ingredients: List<Ingredient>): Int {

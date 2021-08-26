@@ -27,8 +27,8 @@ internal class FixedAndGateTest {
         assertTrue { element != null }
         assertTrue { element is FixedAndGate }
         val gate = element as FixedAndGate
-        assertTrue {gate.inputs == listOf("ad")}
-        assertTrue {gate.output == "ae"}
+        assertTrue { gate.inputs == listOf("ad") }
+        assertTrue { gate.output == "ae" }
     }
 
     @Test

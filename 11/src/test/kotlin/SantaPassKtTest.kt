@@ -9,17 +9,17 @@ import kotlin.test.assertTrue
 internal class SantaPassKtTest {
 
     @Test
-    fun `should increment pass`(){
+    fun `should increment pass`() {
         assertEquals("abcdffaa", SantaPass().generateNextPass("abcdefgh"))
     }
 
     @Test
-    fun `should increment another pass`(){
+    fun `should increment another pass`() {
         assertEquals("ghjaabcc", SantaPass().generateNextPass("ghijklmn"))
     }
 
     @Test
-    fun `should increment pass multiple times`(){
+    fun `should increment pass multiple times`() {
         assertEquals(listOf("abcdffaa", "abcdffbb", "abcdffcc"), SantaPass().generateNextPasswords("abcdefgh", 3))
     }
 

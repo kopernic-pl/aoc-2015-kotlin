@@ -46,6 +46,6 @@ fun main() {
         .map { (set, _) -> set to set.size }
         .toMap()
 
-    m.filterValues { it == m.values.min() }
-        .also { println("Number of combinations with smallest (${m.values.min()}) number of containers: ${it.size}") }
+    m.filterValues { it == m.values.minOrNull() }
+        .also { println("Number of combinations with smallest (${m.values.minOrNull()}) number of containers: ${it.size}") }
 }

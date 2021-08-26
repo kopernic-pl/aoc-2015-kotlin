@@ -52,11 +52,11 @@ class SittingPreferences {
 
 @Suppress("UnstableApiUsage")
 class SittingPlan {
-    //that gets factorial and will be very slow with higher diners number
+    // that gets factorial and will be very slow with higher diners number
     fun findBestSitting(prefs: SittingPreferences): Pair<MutableList<String>, Int>? {
         val sittingPossibilities = Collections2.permutations(prefs.getAllNames())
         return sittingPossibilities.map { it to calculateHappiness(it, prefs) }
-            .maxBy { (_, happiness) -> happiness }
+            .maxByOrNull { (_, happiness) -> happiness }
     }
 
     internal fun calculateHappiness(sittingLayout: List<String>, prefs: SittingPreferences): Int {

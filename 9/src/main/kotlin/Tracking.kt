@@ -27,8 +27,8 @@ class DistanceCalculator {
                 .sum()
         }
 
-        println("Min: ${listOfAllDistances.min()}")
-        println("Max: ${listOfAllDistances.max()}")
+        println("Min: ${listOfAllDistances.minOrNull()}")
+        println("Max: ${listOfAllDistances.maxOrNull()}")
     }
 
     internal fun routeToLegs(route: List<Place>): List<Leg> = route.zipWithNext()

@@ -13,9 +13,11 @@ class Ingredient(
     companion object {
         fun fromString(s: String): Ingredient {
             val regEx =
-                ("(?<name>.+): capacity (?<capacityVal>[-+]?\\d*), " +
+                (
+                    "(?<name>.+): capacity (?<capacityVal>[-+]?\\d*), " +
                         "durability (?<durabilityVal>[-+]?\\d*), flavor (?<flavorVal>[-+]?\\d*), " +
-                        "texture (?<textureVal>[-+]?\\d*), calories (?<caloriesVal>[-+]?\\d*)")
+                        "texture (?<textureVal>[-+]?\\d*), calories (?<caloriesVal>[-+]?\\d*)"
+                    )
                     .toRegex()
             return regEx
                 .matchEntire(s)
@@ -45,10 +47,10 @@ class Ingredient(
 
     override fun toString(): String {
         return "Ingredient(name='$name', " +
-                "capacity=$capacity, " +
-                "durability=$durability, " +
-                "flavor=$flavor, " +
-                "texture=$texture, " +
-                "calories=$calories)"
+            "capacity=$capacity, " +
+            "durability=$durability, " +
+            "flavor=$flavor, " +
+            "texture=$texture, " +
+            "calories=$calories)"
     }
 }

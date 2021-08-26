@@ -1,7 +1,7 @@
 import NaughtyNice.containsAnyLetterTwiceInRow
-import NaughtyNice.countVovels
 import NaughtyNice.containsForbidden
 import NaughtyNice.containsLetterAnythingLetterPattern
+import NaughtyNice.countVovels
 import NaughtyNice.hasTwoNonOverlappingTwin
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
@@ -32,27 +32,27 @@ class NaughtyNiceKtTest {
 
     @Test
     fun `should not contain forbidden words`() {
-        assertTrue { "haegwjzuvuyypxyu".containsForbidden()}
-        assertTrue { "ab".containsForbidden()}
-        assertTrue { "cd".containsForbidden()}
-        assertTrue { "pq".containsForbidden()}
-        assertTrue { "xy".containsForbidden()}
-        assertTrue { "abc".containsForbidden()}
-        assertFalse { "def".containsForbidden()}
+        assertTrue { "haegwjzuvuyypxyu".containsForbidden() }
+        assertTrue { "ab".containsForbidden() }
+        assertTrue { "cd".containsForbidden() }
+        assertTrue { "pq".containsForbidden() }
+        assertTrue { "xy".containsForbidden() }
+        assertTrue { "abc".containsForbidden() }
+        assertFalse { "def".containsForbidden() }
     }
 
     @Test
     fun `should match letter-anything-letter`() {
-        assertTrue { "xyx".containsLetterAnythingLetterPattern()}
-        assertTrue { "abcdefeghi".containsLetterAnythingLetterPattern()}
-        assertTrue { "aaa".containsLetterAnythingLetterPattern()}
-        assertFalse { "abc".containsLetterAnythingLetterPattern()}
+        assertTrue { "xyx".containsLetterAnythingLetterPattern() }
+        assertTrue { "abcdefeghi".containsLetterAnythingLetterPattern() }
+        assertTrue { "aaa".containsLetterAnythingLetterPattern() }
+        assertFalse { "abc".containsLetterAnythingLetterPattern() }
     }
 
     @Test
     fun `should match pair-whatever-pair`() {
-        assertTrue { "xyxy".hasTwoNonOverlappingTwin()}
-        assertTrue { "aabcdefgaa".hasTwoNonOverlappingTwin()}
-        assertFalse { "aaa".hasTwoNonOverlappingTwin()}
+        assertTrue { "xyxy".hasTwoNonOverlappingTwin() }
+        assertTrue { "aabcdefgaa".hasTwoNonOverlappingTwin() }
+        assertFalse { "aaa".hasTwoNonOverlappingTwin() }
     }
 }

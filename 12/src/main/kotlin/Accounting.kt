@@ -42,7 +42,6 @@ class Reformatter {
         return reformat(doc.removeRange(startToCut + 1, endToCut))
     }
 
-
     private fun String.findSameLevelLeadingOpen(op: Int): Int {
         var currentlyOpenedObjects = 1
         var pos = op

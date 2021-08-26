@@ -3,5 +3,5 @@ plugins {
 }
 
 application {
-    mainClassName = "ElvesAndHousesKt"
+    mainClass.set("ElvesAndHousesKt")
 }

@@ -4,10 +4,10 @@ import kotlin.test.Test
 internal class SittingPlanTest {
 
     @Test
-    fun shouldCalculateHappinessForSitting_whenEveryoneIsHappy(){
+    fun shouldCalculateHappinessForSitting_whenEveryoneIsHappy() {
         val planner = SittingPlan()
 
-        val sittingLayout = listOf("a","b","c")
+        val sittingLayout = listOf("a", "b", "c")
         val preferencesString = """
             a would gain 1 happiness units by sitting next to b.
             a would gain 1 happiness units by sitting next to c.
@@ -21,10 +21,10 @@ internal class SittingPlanTest {
     }
 
     @Test
-    fun shouldCalculateHappinessForSitting_whenThereAreSomeProblems(){
+    fun shouldCalculateHappinessForSitting_whenThereAreSomeProblems() {
         val planner = SittingPlan()
 
-        val sittingLayout = listOf("a","b","c")
+        val sittingLayout = listOf("a", "b", "c")
         val preferencesString = """
             a would gain 1 happiness units by sitting next to b.
             a would lose 1 happiness units by sitting next to c.

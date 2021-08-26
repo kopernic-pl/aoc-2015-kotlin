@@ -1,4 +1,8 @@
-import Ingredient.IngredientProperty.*
+import Ingredient.IngredientProperty.CALORIES
+import Ingredient.IngredientProperty.CAPACITY
+import Ingredient.IngredientProperty.DURABILITY
+import Ingredient.IngredientProperty.FLAVOR
+import Ingredient.IngredientProperty.TEXTURE
 import org.amshove.kluent.`should be equal to`
 import kotlin.test.Test
 

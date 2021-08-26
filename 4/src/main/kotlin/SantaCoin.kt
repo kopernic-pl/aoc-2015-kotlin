@@ -36,12 +36,12 @@ object SantaCoin {
 
         println(
             "Number that hashes with six trailing zeros: " +
-                    findNumberHashWithTrailingZeros(input, trailingZeros = 6)
+                findNumberHashWithTrailingZeros(input, trailingZeros = 6)
         )
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     SantaCoin.aoc4a()
     SantaCoin.aoc4b()
 }

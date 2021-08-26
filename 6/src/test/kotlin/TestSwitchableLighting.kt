@@ -66,7 +66,7 @@ internal class TestSwitchableLighting {
     @Nested
     @DisplayName("Testing checking on out of bounds lights")
     inner class TestingCheckingOutOfBounds {
-         private val c = Coordinate(1, 1)
+        private val c = Coordinate(1, 1)
 
         @Test
         @DisplayName("is off")
@@ -105,4 +105,3 @@ internal class TestSwitchableLighting {
         }
     }
 }
-

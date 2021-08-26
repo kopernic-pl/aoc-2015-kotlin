@@ -4,7 +4,7 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="16">
       <module name="net.wrony.kopernic.aoc-2015-kotlin.main" target="1.8" />
       <module name="net.wrony.kopernic.aoc-2015-kotlin.test" target="1.8" />
       <module name="net.wrony.kopernic.aoc2015.main" target="1.8" />

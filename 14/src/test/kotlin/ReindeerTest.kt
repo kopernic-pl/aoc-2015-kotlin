@@ -2,18 +2,16 @@ import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.`should throw`
 import org.amshove.kluent.invoking
 import org.junit.jupiter.api.DisplayName
-import java.lang.IllegalArgumentException
 import kotlin.test.Test
-
 
 internal class ReindeerTest {
 
     @Test
     @DisplayName("Should return raindeers race cycle time")
     fun getCycleTime() {
-        Reindeer(1,1,1).cycleTime `should be equal to`  2
+        Reindeer(1, 1, 1).cycleTime `should be equal to` 2
 
-        Reindeer(42,1,1).cycleTime `should be equal to`  2
+        Reindeer(42, 1, 1).cycleTime `should be equal to` 2
     }
 
     @Test
@@ -30,7 +28,7 @@ internal class ReindeerTest {
     fun `getting position behind time should throw exception`() {
         val reindeer = Reindeer(100, 10, 10)
 
-        invoking {reindeer.getPositionInLastCycle(21)} `should throw` IllegalArgumentException::class
+        invoking { reindeer.getPositionInLastCycle(21) } `should throw` IllegalArgumentException::class
     }
 
     @Test
@@ -70,7 +68,7 @@ internal class ReindeerTest {
     fun `should move`() {
         val speed = 200
         val speedTime = 50
-        val sleep=50
+        val sleep = 50
 
         val reindeer = Reindeer(speed, speedTime, sleep)
 
@@ -81,7 +79,7 @@ internal class ReindeerTest {
     fun `should move a bit further`() {
         val speed = 200
         val speedTime = 50
-        val sleep=50
+        val sleep = 50
 
         val reindeer = Reindeer(speed, speedTime, sleep)
 

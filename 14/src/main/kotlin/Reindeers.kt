@@ -17,7 +17,7 @@ fun main() {
 
     val leadershipResult = ReindeerLeadershipRaceSimulator(TIMER_INPUT).calculateLeadershipRace(reindeers)
 
-    val winnerByLeadership = leadershipResult.toList().maxBy { (_, result) -> result }
+    val winnerByLeadership = leadershipResult.toList().maxByOrNull { (_, result) -> result }
 
     println("Winner by leadership: $winnerByLeadership")
 }

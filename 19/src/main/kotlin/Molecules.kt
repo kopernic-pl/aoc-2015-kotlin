@@ -1,6 +1,5 @@
 import com.google.common.io.Resources.getResource
 
-
 @Suppress("UnstableApiUsage")
 fun main() {
     val input = getResource("input.txt").readText().lines()
@@ -19,15 +18,13 @@ fun main() {
     println("Calibration: ${allPossibleMolecules.size} combinations found")
 
     findSmallestNumber(inputMolecule, replacementMap)
-
 }
 
-fun replace(s: String, `in`: String, out: String, position: Int): String {
-    return s.substring(0, position) + out + s.substring(position + `in`.length)
+fun replace(s: String, input: String, out: String, position: Int): String {
+    return s.substring(0, position) + out + s.substring(position + input.length)
 }
 
 fun findSmallestNumber(targetMolecule: String, allReplacements: List<Pair<String, String>>) {
-
     var nbOfReplaces: Int
     do {
         println("New shuffle")
@@ -36,7 +33,8 @@ fun findSmallestNumber(targetMolecule: String, allReplacements: List<Pair<String
         var currentMolecule = targetMolecule
 
         val reps = allReplacements.shuffled()
-        while (currentMolecule != "e" && iterations < 3333) {
+        val maxIterations = 3333
+        while (currentMolecule != "e" && iterations < maxIterations) {
             for ((from, toAtom) in reps) {
                 if (currentMolecule.contains(toAtom)) {
                     nbOfReplaces += toAtom.toRegex().findAll(currentMolecule).toList().size

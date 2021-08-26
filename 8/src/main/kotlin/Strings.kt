@@ -1,7 +1,6 @@
 import com.google.common.io.Resources
 import java.io.File
 
-
 @Suppress("UnstableApiUsage")
 fun main() {
     val lines = File(Resources.getResource("input.txt").toURI()).readLines()

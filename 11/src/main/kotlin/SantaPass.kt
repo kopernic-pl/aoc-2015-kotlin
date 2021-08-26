@@ -9,7 +9,6 @@ fun main() {
     println(passwords)
 }
 
-
 internal class SantaPass {
     fun generateNextPasswords(currentPass: String, n: Int): List<String> {
         return generateSequence(currentPass) { generateNextPass(it) }
@@ -32,14 +31,16 @@ internal class SantaPass {
 internal operator fun String.inc(): String {
     if (this.isEmpty()) throw IllegalStateException()
 
-    return this.foldRight(listOf(),
+    return this.foldRight(
+        listOf(),
         { char, acc: List<IncrementResult> ->
             when {
                 acc.isEmpty() -> acc + char.incrementWithCarry()
                 lastHasCarry(acc) -> acc + char.incrementWithCarry()
                 else -> acc + (false to char)
             }
-        })
+        }
+    )
         .reversed()
         .let {
             if (firstHasCarry(it)) listOf(false to 'a') + it

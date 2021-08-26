@@ -1,6 +1,6 @@
 import Lighting.Command
 
-class LightingProgram(commandsProvider: ()->List<String>) {
+class LightingProgram(commandsProvider: () -> List<String>) {
 
     val program: Sequence<Pair<Command, Coordinate>>
 

@@ -1,9 +1,10 @@
-plugins {
-    id("nebula.kotlin") version "1.3.70" apply false
-    id("nebula.project") version "7.0.7" apply false
-    id("io.gitlab.arturbosch.detekt") version "1.7.0-beta2" apply false
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-    id("com.github.ben-manes.versions") version "0.28.0"
+plugins {
+    id("nebula.project") version "8.2.0" apply false
+    id("com.diffplug.spotless") version "5.14.3" apply false
+    id("com.github.ben-manes.versions") version "0.39.0"
+    kotlin("jvm") version "1.5.30" apply false
 }
 
 allprojects {
@@ -12,15 +13,42 @@ allprojects {
 }
 
 subprojects {
-    apply(plugin = "nebula.kotlin")
-    apply(plugin = "nebula.project")
-    apply(plugin = "io.gitlab.arturbosch.detekt")
+    apply {
+        plugin("org.jetbrains.kotlin.jvm")
+        plugin("nebula.project")
+        plugin("com.diffplug.spotless")
+    }
+
     repositories {
-        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        val implementation by configurations
+        implementation(kotlin("stdlib-jdk8"))
+    }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "16"
+        }
+    }
+
+    configure<com.diffplug.gradle.spotless.SpotlessExtension> {
+        kotlin {
+            ktlint()
+        }
+        kotlinGradle {
+            target("*.gradle.kts")
+            ktlint()
+        }
     }
 }
 
-tasks.wrapper {
-    gradleVersion = "6.8"
-    distributionType = Wrapper.DistributionType.ALL
+tasks {
+    wrapper {
+        gradleVersion = "7.2"
+        distributionType = Wrapper.DistributionType.ALL
+    }
 }

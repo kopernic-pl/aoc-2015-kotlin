@@ -23,12 +23,12 @@ val auntFactsCheckers1: Map<String, (Int) -> Boolean> =
 
 val auntFactsCheckers2: Map<String, (Int) -> Boolean> =
     auntFactsCheckers1 +
-            listOf(
-                "cats" to greater(facts["cats"] ?: error("Null value")),
-                "pomeranians" to lower(facts["pomeranians"] ?: error("Null value")),
-                "goldfish" to lower(facts["goldfish"] ?: error("Null value")),
-                "trees" to greater(facts["trees"] ?: error("Null value"))
-            )
+        listOf(
+            "cats" to greater(facts["cats"] ?: error("Null value")),
+            "pomeranians" to lower(facts["pomeranians"] ?: error("Null value")),
+            "goldfish" to lower(facts["goldfish"] ?: error("Null value")),
+            "trees" to greater(facts["trees"] ?: error("Null value"))
+        )
 
 @Suppress("UnstableApiUsage")
 fun main() {
@@ -67,10 +67,12 @@ object AuntMemoriesReader {
     private const val mem3cntKey = "mem3cntKey"
 
     private val regex =
-        ("(?<$sueKey>Sue \\d+):" +
+        (
+            "(?<$sueKey>Sue \\d+):" +
                 " (?<$mem1Key>\\w+): (?<$mem1cntKey>\\d+)," +
                 " (?<$mem2Key>\\w+): (?<$mem2cntKey>\\d+)," +
-                " (?<$mem3Key>\\w+): (?<$mem3cntKey>\\d+)").toRegex()
+                " (?<$mem3Key>\\w+): (?<$mem3cntKey>\\d+)"
+            ).toRegex()
 
     fun readMemories(s: List<String>): List<AuntMemory> {
         return s.mapNotNull { l -> regex.matchEntire(l) }

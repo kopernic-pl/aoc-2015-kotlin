@@ -6,7 +6,7 @@ fun main() {
 
     var housesArray = IntArray(primeClosestToMinimumFor10)
     var presentsPerHouse = 10
-    //visit all houses
+    // visit all houses
     for (i in 1 until housesArray.size) {
         var j = i
         while (j < housesArray.size) {
@@ -16,13 +16,12 @@ fun main() {
     }
     printFirstHouseWithSufficientPresents(housesArray, minimumOfPresents)
 
-
     val primeClosestToMinFor11 = 3090959
     housesArray = IntArray(primeClosestToMinFor11)
 
     presentsPerHouse = 11
     val maxVisits = 50
-    //visit houses, but stop after 50
+    // visit houses, but stop after 50
     for (i in 1 until housesArray.size) {
         var count = 0
         var j = i

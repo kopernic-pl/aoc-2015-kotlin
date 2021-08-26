@@ -4,7 +4,7 @@ import kotlin.test.Test
 internal class ReformatterTest {
 
     @Test
-    fun `should remove all objects with red valued property`(){
+    fun `should remove all objects with red valued property`() {
         val testString = """
             [{
                 "a":1,
@@ -18,7 +18,7 @@ internal class ReformatterTest {
     }
 
     @Test
-    fun `should not remove red value from arrays`(){
+    fun `should not remove red value from arrays`() {
         val testString = """
             [{
                 "a":1,

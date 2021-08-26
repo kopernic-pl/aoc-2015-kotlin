@@ -8,16 +8,18 @@ fun main() {
 
 @Suppress("UnstableApiUsage")
 private fun aoc6(lightingSystem: Lighting) {
-    println("Program run on ${lightingSystem::class.simpleName} turned on " + lightingSystem
-        .apply {
-            LightingProgram { File(Resources.getResource("input.txt").toURI()).readLines() }
-                .program
-                .forEach {(command, coordinate)->
-                    this.applyCommand(command, coordinate)
-                }
-        }
-        .countLights()
-    + " lights")
+    println(
+        "Program run on ${lightingSystem::class.simpleName} turned on " + lightingSystem
+            .apply {
+                LightingProgram { File(Resources.getResource("input.txt").toURI()).readLines() }
+                    .program
+                    .forEach { (command, coordinate) ->
+                        this.applyCommand(command, coordinate)
+                    }
+            }
+            .countLights() +
+            " lights"
+    )
 }
 
 private fun aoc6a() {

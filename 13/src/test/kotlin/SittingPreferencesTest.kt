@@ -1,12 +1,15 @@
-import org.amshove.kluent.*
-import java.lang.IllegalArgumentException
+import org.amshove.kluent.`should be equal to`
+import org.amshove.kluent.`should contain all`
+import org.amshove.kluent.`should throw`
+import org.amshove.kluent.invoking
+import org.amshove.kluent.shouldBeNull
 import kotlin.test.Test
 
 internal class SittingPreferencesTest {
     private val input = """
             David would gain 9 happiness units by sitting next to Mallory.
             Eric would lose 51 happiness units by sitting next to Alice.
-        """.trimIndent()
+    """.trimIndent()
 
     @Test
     fun shouldParseInput_withTwoPreferences() {
