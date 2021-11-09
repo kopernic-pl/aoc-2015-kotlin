@@ -1,7 +1,7 @@
+import org.amshove.kluent.invoking
 import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.`should contain all`
 import org.amshove.kluent.`should throw`
-import org.amshove.kluent.invoking
 import org.amshove.kluent.shouldBeNull
 import kotlin.test.Test
 

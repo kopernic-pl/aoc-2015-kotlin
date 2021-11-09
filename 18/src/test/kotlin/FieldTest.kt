@@ -1,5 +1,5 @@
-import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.`should be`
+import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.`should contain all`
 import org.amshove.kluent.`should not contain`
 import org.amshove.kluent.shouldBeEmpty

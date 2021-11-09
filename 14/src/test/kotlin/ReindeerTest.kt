@@ -1,6 +1,6 @@
+import org.amshove.kluent.invoking
 import org.amshove.kluent.`should be equal to`
 import org.amshove.kluent.`should throw`
-import org.amshove.kluent.invoking
 import org.junit.jupiter.api.DisplayName
 import kotlin.test.Test
 
