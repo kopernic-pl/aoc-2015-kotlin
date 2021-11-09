@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("nebula.project") version "8.2.0" apply false
-    id("com.diffplug.spotless") version "5.14.3" apply false
+    id("nebula.project") version "9.1.6" apply false
+    id("com.diffplug.spotless") version "6.0.0" apply false
     id("com.github.ben-manes.versions") version "0.39.0"
-    kotlin("jvm") version "1.5.30" apply false
+    kotlin("jvm") version "1.5.31" apply false
 }
 
 allprojects {
@@ -31,7 +31,7 @@ subprojects {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
-            jvmTarget = "16"
+            jvmTarget = "17"
         }
     }
 

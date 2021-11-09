@@ -7,11 +7,11 @@ application {
 }
 
 dependencies {
-    implementation("com.google.guava:guava:30.1.1-jre")
+    implementation("com.google.guava:guava:31.0.1-jre")
 
     testImplementation(kotlin("test-junit"))
     testCompileOnly("junit:junit:4.13.2")
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.8.1")
 }
 
 tasks.test {
