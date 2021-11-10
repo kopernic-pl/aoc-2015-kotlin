@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -19,6 +20,12 @@ subprojects {
         plugin("com.diffplug.spotless")
     }
 
+    configure<KotlinJvmProjectExtension> {
+        jvmToolchain {
+            (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(16))
+        }
+    }
+
     repositories {
         mavenCentral()
     }
@@ -31,7 +38,6 @@ subprojects {
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
-            jvmTarget = "16"
         }
     }
 
@@ -48,7 +54,7 @@ subprojects {
 
 tasks {
     wrapper {
-        gradleVersion = "7.2"
+        gradleVersion = "7.3"
         distributionType = Wrapper.DistributionType.ALL
     }
 }

@@ -8,7 +8,7 @@ object SantaCoin {
     @Suppress("DEPRECATION")
     private val md5hash = Hashing.md5()
 
-    internal fun hashString(s: String) = md5hash.hashString(s, defaultCharset())!!
+    internal fun hashString(s: String) = md5hash.hashString(s, defaultCharset())
 
     internal fun HashCode.startsWithZeros(countOfLeadingZeros: Int): Boolean =
         this.toString().startsWith("0".repeat(countOfLeadingZeros))
